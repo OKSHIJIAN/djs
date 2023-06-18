@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href='http://cdn.repository.webfont.com/webfonts/nomal/152233/29854/648d924e6f50f60af0f971eb.css' rel='stylesheet' type='text/css' />
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #hh{
+            font-size: 50px;
+            text-align: center;
+            font-family:'Bebas';
+        }
+    </style>
+  </head>
+  <body>
+    <h1 id="hh"></h1>
+  </body>
+  <script type="text/javascript">
+    function station(x,y,z){
+      //当前时间
+      var now = Date.now(),
+          //结束时间
+          end = new Date(x,y-1,z),
+          ends = end.getTime();
+      var ss = ends - now;
+      var s = Math.floor(ss/1000);
+      //相差天数
+      var day = Math.floor(s / 60 / 60 / 24);
+      //相差小时数
+      var hours = Math.floor(s / 60 / 60 % 24);
+      //相差分钟数
+      var min = Math.floor(s / 60 % 60 );
+      //相差秒数
+      var sec = Math.floor(s % 60 );
+      var html = " "+day+"DAY  "+hours+"H  "+min+"′  "+sec+"″";
+      hh.innerHTML = html;
+
+    }
+    station(2024,9,13);
+    //一秒一次调用
+    setInterval(function(){
+      station(2024,6,14);
+    },1000);
+  </script>
+</html>
